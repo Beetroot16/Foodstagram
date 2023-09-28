@@ -4,8 +4,11 @@ import { useEffect, useState} from 'react'
 import {Link , useNavigate} from 'react-router-dom'
 import logoImage from '../assets/Logo.png'
 import { toast } from 'react-toastify'
+import { useContext } from 'react'
+import { LoginContext } from '../context/login-context'
 
 export default function SignIn() {
+    const {setUserLogin} = useContext(LoginContext)
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -33,6 +36,7 @@ export default function SignIn() {
                 notifyB(data.message)
                 console.log(data.token)
                 localStorage.setItem("jwt",data.token)
+                setUserLogin(true)
                 navigate('/profile')
             }
         })
