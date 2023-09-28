@@ -31,6 +31,8 @@ export default function SignIn() {
             }
             else{
                 notifyB(data.message)
+                console.log(data.token)
+                localStorage.setItem("jwt",data.token)
                 navigate('/profile')
             }
         })

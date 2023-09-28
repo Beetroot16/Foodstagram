@@ -1,9 +1,12 @@
-const e = require('express');
+// const e = require('express');
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const USER = mongoose.model('USER');
 const bcrype = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const {Jwt_secret} = require('../keys');
+const requireLogin = require('../middleware/requireLogin');
 
 router.get("/", (req, res) => {
     res.send("Hello from auth.js");
@@ -41,8 +44,11 @@ router.post("/signin", (req, res) => {
             bcrype.compare(password,savedUser.password).then(
                 (match) => {
                     if(match){
-                        console.log("Successfully signed in");
-                        return res.json({message:"Successfully signed in"})
+                        // console.log("Successfully signed in");
+                        // return res.json({message:"Successfully signed in"})
+                        const token = jwt.sign({_id:savedUser._id},Jwt_secret);
+                        console.log(token); 
+                        return res.json({message:"Successfully signed in",token:token}) 
                     }
                     else{
                         console.log("Failed to sign in");
