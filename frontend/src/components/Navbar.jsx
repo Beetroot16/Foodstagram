@@ -10,10 +10,10 @@ export default function navbar(login) {
         if (login.login || token) {
             return [
                 <>
-                    <Link to="/profile" >
+                    <Link className="a" to="/profile" >
                         <li>Profile</li>
                     </Link>
-                    <Link to="/createPost" >
+                    <Link className="a" to="/createPost" >
                         <li>Create</li>
                     </Link>
                 </>
@@ -22,10 +22,10 @@ export default function navbar(login) {
         else{
             return [
                 <>
-                    <Link to="/signup">
+                    <Link className="a" to="/signup">
                         <li>SignUp</li>
                     </Link>
-                    <Link to="/signin">
+                    <Link className="a" to="/signin">
                         <li>SignIn</li>
                     </Link>
                 </>
@@ -36,7 +36,7 @@ export default function navbar(login) {
     return (
         <div className='navbar'>
             <Link to="/">
-                <img src={logoImage} alt="logo" className='logo' />
+                <img className="navLogo" src={logoImage} alt="logo"/>
             </Link>
             <ul className='navMenu'>
                 {loginStatus()}
