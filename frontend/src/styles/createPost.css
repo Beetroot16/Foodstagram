@@ -1,28 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;1,300&family=Poppins:wght@500;600;700;800&display=swap');
+
+.createpost-container{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .createPost{
-    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 800px;
     margin: 10px auto;
     border: 1px solid #cccccc;
     border-radius: 5px;
 }
 
+.post-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    display: flex;
+    height: 10vh;
+}
+
+.post-header h4{
+    width: 70vw;
+}
+
+#post-btn{
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    width: 10vw;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #F8624F;
+    border: none;
+    margin: 10px;
+}
+
 .main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
     border-top: #cccccc 1px solid;
     padding: 10px;
 }
 
-.post-header{
-    display: flex;
-}
-
-#post-btn{
-    border: none;
-    color: rgb(25, 143, 212);
-    background: none;
-    cursor: pointer;
-    font-weight: bolder;
-}
 
 .details{
+    height: 10vh;
     border-top:#cccccc 1px solid;
 }
 
@@ -32,8 +66,13 @@ textarea{
     outline: none;
 }
 
+.main-div input{
+    font-size: 15px;
+}
+
 #output{
-    width: 300px;
+    width: 100px;
+    margin: 50px;
     border: none;
     outline: none;
 }

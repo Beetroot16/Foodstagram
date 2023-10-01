@@ -2,7 +2,6 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import '../styles/signin.css'
 import { Link, useNavigate } from 'react-router-dom'
-import logoImage from '../assets/Logo.png'
 import pizzaImage from '../assets/pizza.png'
 import { toast } from 'react-toastify'
 import { useContext } from 'react'
@@ -38,18 +37,16 @@ export default function SignIn() {
                     console.log(data.token)
                     localStorage.setItem("jwt", data.token)
                     setUserLogin(true)
-                    navigate('/profile')
+                    navigate('/')
                 }
             })
     };
 
     return (
-        <div className='signIn'>
+        <div className='signin-container'>
             <div className="form-div">
-                <h1 className='subheading'>In every bite, there's a story waiting to be told. Explore the world one recipe at a time with <span class="name">Nom-Nom.</span></h1>
-                <div className="loginForm">
-                    <h1 className="welcomeBack">Welcome Back !</h1>
-                    <h2 className="credentials">Please Enter your credentials</h2>
+                <h1 className='subheading'>In every bite, there's a story waiting to be told. Explore the world one recipe at a time with <span class="nom-nom">Nom-Nom.</span></h1>
+                <div className="loginform">
                     <div className="input-div">
                         <div className="email">
                             <p>Email</p>
