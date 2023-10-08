@@ -37,12 +37,60 @@ const Home = () => {
         500: 1
     };
 
+    const likePost = (id) => {
+        fetch("http://localhost:3000/like", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "authorization": "Bearer " + localStorage.getItem("jwt"),
+            },
+            body: JSON.stringify({
+                postId: id
+            })
+        }).then(res => res.json()).then(result => {
+            const new_data = data.map((posts) => {
+                if(posts._id === result._id){
+                    return result
+                }
+                else{
+                    return posts
+                }
+            })
+            setData(new_data)
+            console.log(result)
+        })
+    };
+
+    const unlikePost = (id) => {
+        fetch("http://localhost:3000/unlike", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "authorization": "Bearer " + localStorage.getItem("jwt"),
+            },
+            body: JSON.stringify({
+                postId: id
+            })
+        }).then(res => res.json()).then(result => {
+            const new_data = data.map((posts) => {
+                if(posts._id === result._id){
+                    return result
+                }
+                else{
+                    return posts
+                }
+            })
+            setData(new_data)
+            console.log(result)
+        })
+    };
+
     return (
         <div className="home-container">
             <Masonry
                 breakpointCols={breakpointColumnsObj}
-                className="my-masonry-grid"
-                columnClassName="my-masonry-grid_column">
+                className="home-masonry-grid"
+                columnClassName="home-masonry-grid_column">
                 {data.map((posts) => (
                     <div className="card" key={posts._id}>
                         {/* Card Content */}
@@ -60,10 +108,24 @@ const Home = () => {
                             </div>
                             {/* Card Content */}
                             <div className="card-content-inner">
-                                <span className="material-symbols-outlined">
-                                    favorite
-                                </span>
-                                <p className='likecount'>9 Likes</p>
+                                {
+                                    posts.likes.includes(JSON.parse(localStorage.getItem("user"))._id)
+                                        ?
+                                        <span className="material-symbols-outlined material-symbols-outlined-red"
+                                            onClick={() => { unlikePost(posts._id) }}
+                                        >
+                                            favorite
+                                        </span>
+                                        :
+                                        (
+                                            <span className="material-symbols-outlined"
+                                                onClick={() => { likePost(posts._id) }}
+                                            >
+                                                favorite
+                                            </span>
+                                        )
+                                }
+                                <p className='likecount'>{posts.likes.length} Likes</p>
                                 <p>{posts.body}</p>
                             </div>
                             {/* Add Comments */}

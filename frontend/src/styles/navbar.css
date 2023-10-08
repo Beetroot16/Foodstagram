@@ -52,6 +52,22 @@ ul {
     padding-left: 0px;
 }
 
+.primaryBtn{
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    margin: 0 20px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: #F8624F;
+}
+
+.primaryBtn:hover{
+    transition: 0.5s;
+    font-size: 21px;
+}
+
 @media screen and (max-width: 582px) {
     ul {
         margin-left: 10px;

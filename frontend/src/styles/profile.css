@@ -1,14 +1,14 @@
-.profile{
+.profile {
     max-width: 600px;
     margin: 10px auto;
 }
 
-.profile-frame{
+.profile-frame {
     display: flex;
     justify-content: space-evenly;
 }
 
-.profile-pic{
+.profile-pic {
     height: fit-content;
 }
 
@@ -19,25 +19,26 @@
     border-radius: 100%;
 }
 
-.profile-data{
+.profile-data {
     text-align: left;
 }
 
-.profile-info{
+.profile-info {
     display: flex;
 }
 
-.profile-info p{
+.profile-info p {
     padding: 0px 5px;
 }
 
-.gallery{
+.gallery {
     display: flex;
-    flex-wrap: wrap;
-    text-align: center;
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
 }
 
-.gallery img{
-    width: 30%;
+.gallery img {
+    width: 300px;
     margin: 10px;
 }

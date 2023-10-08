@@ -47,8 +47,9 @@ router.post("/signin", (req, res) => {
                         // console.log("Successfully signed in");
                         // return res.json({message:"Successfully signed in"})
                         const token = jwt.sign({_id:savedUser._id},Jwt_secret);
-                        console.log(token); 
-                        return res.json({message:"Successfully signed in",token:token}) 
+                        const {_id,name,username,email} = savedUser;
+                        console.log({token,user:{_id,name,username,email}});
+                        return res.json({message:"Successfully signed in",token:token,user:{_id,name,username,email}});
                     }
                     else{
                         console.log("Failed to sign in");
