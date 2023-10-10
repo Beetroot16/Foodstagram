@@ -1,5 +1,8 @@
 .profile {
-    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 10px auto;
 }
 
@@ -31,14 +34,29 @@
     padding: 0px 5px;
 }
 
-.gallery {
+/* .gallery {
     display: flex;
-    /* text-align: center; */
+    text-align: center;
     align-items: center;
     justify-content: center;
+} */
+
+.gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 40px; */
+    width: 80vw;
 }
 
-.gallery img {
-    width: 300px;
-    margin: 10px;
+.profile-masonry-grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /* margin-left: -15px; */
+    width: auto;
+}
+
+.profile-masonry-grid_column {
+    padding: 10px;
 }
