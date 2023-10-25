@@ -1,8 +1,9 @@
 import React from 'react'
 import '../styles/Card.css'
+import { useEffect } from 'react'
 
-export default function Card({ posts, data, setData, setComment}) {
-    
+export default function Card({ posts, data, setData, comment, setComment, toggleComment, show, setShow }) {
+
     const likePost = (id) => {
         fetch("http://localhost:3000/like", {
             method: "PUT",
@@ -51,9 +52,36 @@ export default function Card({ posts, data, setData, setComment}) {
         })
     };
 
-    const makeComment = () => {
-        console.log(comment)
+    const makeComment = (text, id) => {
+        fetch("http://localhost:3000/comment", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "authorization": "Bearer " + localStorage.getItem("jwt"),
+            },
+            body: JSON.stringify({
+                text: text,
+                postId: id
+            })
+        }).then(res => res.json())
+            .then(result => {
+                const new_data = data.map((post) => {
+                    if (post._id === result._id) {
+                        return result;
+                    } else {
+                        return post;
+                    }
+                });
+                setData(new_data);
+                setComment("");  // Reset comment state to empty string
+                console.log(result);
+            });
     }
+
+    useEffect(() => {
+        // Reset comment state to empty string after making the comment
+        setComment("");
+    }, [data, setData, setComment]);
 
     return (
         <div className="Card" key={posts._id}>
@@ -91,12 +119,15 @@ export default function Card({ posts, data, setData, setComment}) {
                     }
                     <p className='likecount'>{posts.likes.length} Likes</p>
                     <p>{posts.body}</p>
+                    <p style={{ fontWeight: "bold", cursor: "pointer" }
+                    } onClick={() => { toggleComment(posts); setShow(true) }
+                    }>view comments</p>
                 </div>
                 {/* Add Comments */}
                 <div className="add-comment">
                     <input type="text" placeholder='Add a comment' onChange={(e) => { setComment(e.target.value) }} />
                     <button className='comment'
-                        onClick={() => { makeComment() }}
+                        onClick={() => { makeComment(comment, posts._id) }}
                     >Post</button>
                 </div>
             </div>

@@ -9,10 +9,12 @@
 .profile-frame {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 20px;
 }
 
 .profile-pic {
     height: fit-content;
+    padding: 20px;
 }
 
 .profile-pic img {
@@ -24,6 +26,7 @@
 
 .profile-data {
     text-align: left;
+    padding: 20px;
 }
 
 .profile-info {

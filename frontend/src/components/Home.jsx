@@ -5,11 +5,15 @@ import Masonry from 'react-masonry-css'
 import '../styles/Home.css';
 import '../styles/Card.css';
 import Card from './card';
+import ShowComment from './showComment';
+import '../styles/ShowComment.css'
 
 const Home = () => {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [comment, setComment] = useState("");
+    const [show, setShow] = useState(false);
+    const [item, setItem] = useState([]);
 
     useEffect(() => {
         const token = localStorage.getItem('jwt');
@@ -32,6 +36,17 @@ const Home = () => {
             });
     }, [navigate]);
 
+    const toggleComment = (posts) => {
+        if (show) {
+            setShow(false);
+        }
+        else{
+            console.log(item);
+            setItem(posts);
+            setShow(true);
+        }
+    };
+
     const breakpointColumnsObj = {
         default: 4,
         1100: 3,
@@ -46,9 +61,12 @@ const Home = () => {
                 className="home-masonry-grid"
                 columnClassName="home-masonry-grid_column">
                 {data.map((posts) => (  
-                    <Card posts = {posts} data={data} setData={setData} setComment={setComment} />
+                    <Card posts = {posts} data={data} setData={setData} comment = {comment} setComment={setComment} toggleComment={toggleComment} show = {setShow} setShow = {setShow}/>
                 ))}
             </Masonry>
+            {
+                show && (<ShowComment item = {item} toggleComment= {toggleComment}/>)
+            }
         </div>
     );
 };
