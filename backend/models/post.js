@@ -5,6 +5,10 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    link:{
+        type: String,
+        required: false
+    },
     photo:{
         type:String,
         required: true

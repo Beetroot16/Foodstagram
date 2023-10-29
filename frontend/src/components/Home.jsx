@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Masonry from 'react-masonry-css'
 import '../styles/Home.css';
 import '../styles/Card.css';
-import Card from './card';
+import Card from './Card';
 import ShowComment from './showComment';
 import '../styles/ShowComment.css'
 

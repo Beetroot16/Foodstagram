@@ -8,6 +8,7 @@ import plus from "../assets/plus.png"
 export default function CreatePost() {
     const navigate = useNavigate();
     const [body, setBody] = useState("")
+    const [link, setLink] = useState("")
     const [image, setImage] = useState("")
     const [url, setUrl] = useState("")
 
@@ -48,6 +49,7 @@ export default function CreatePost() {
                     body: JSON.stringify({
                         body,
                         pic: imageUrl, // Use the imageUrl obtained from Cloudinary
+                        link: link
                     }),
                 })
                     .then((res) => res.json())
@@ -107,6 +109,9 @@ export default function CreatePost() {
                     </div>
                     <textarea value={body} type="text" placeholder='write a caption'
                         onChange={(e) => { setBody(e.target.value) }}
+                    ></textarea>
+                    <textarea value={link} type="text" placeholder='Add a link to your recipe youtube video'
+                        onChange={(e) => { setLink(e.target.value) }}
                     ></textarea>
                 </div>
             </div>

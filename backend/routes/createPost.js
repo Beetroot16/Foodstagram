@@ -15,12 +15,13 @@ router.get("/allPosts", requireLogin, (req, res) => {
 });
 
 router.post("/createPost", requireLogin, (req, res) => {
-    const { body, pic } = req.body;
+    const { body, pic, link } = req.body;
     if (!body || !pic) {
         return res.status(422).json({ error: "Please fill all the fields" });
     }
     const post = new POST({
         body,
+        link,
         photo: pic,
         postedBy: req.user
     });

@@ -96,7 +96,9 @@ export default function Card({ posts, data, setData, comment, setComment, toggle
                 </div>
                 {/* Card Image */}
                 <div className="card-image">
-                    <img src={posts.photo} alt="" />
+                    <a href = {posts.link}>
+                        <img src={posts.photo} alt="" />
+                    </a>
                 </div>
                 {/* Card Content */}
                 <div className="card-content-inner">
