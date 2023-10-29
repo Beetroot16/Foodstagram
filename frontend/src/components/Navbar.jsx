@@ -42,7 +42,7 @@ export default function navbar(login) {
         <div className='navbar'>
             <div className="logodiv">
                 <Link to="/">
-                    <img className="navLogo" src={logoImage} alt="logo" />
+                    <img style={{height:"80px",width:"250px",marginLeft:"10px",marginTop:"20px"}}className="navLogo" src={logoImage} alt="logo" />
                 </Link>
             </div>
             <ul className='navMenu'>
