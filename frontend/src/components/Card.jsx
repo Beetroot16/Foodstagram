@@ -1,8 +1,10 @@
-import React from 'react'
+import React ,{ useRef }from 'react'
 import '../styles/Card.css'
 import { useEffect } from 'react'
 
 export default function Card({ posts, data, setData, comment, setComment, toggleComment, show, setShow }) {
+
+    const commentInputRef = useRef();
 
     const likePost = (id) => {
         fetch("http://localhost:3000/like", {
@@ -73,7 +75,7 @@ export default function Card({ posts, data, setData, comment, setComment, toggle
                     }
                 });
                 setData(new_data);
-                setComment("");  // Reset comment state to empty string
+                commentInputRef.current.value = "";  // Reset comment state to empty string
                 console.log(result);
             });
     }
@@ -127,7 +129,7 @@ export default function Card({ posts, data, setData, comment, setComment, toggle
                 </div>
                 {/* Add Comments */}
                 <div className="add-comment">
-                    <input type="text" placeholder='Add a comment' onChange={(e) => { setComment(e.target.value) }} />
+                    <input type="text" placeholder='Add a comment' ref={commentInputRef} onChange={(e) => { setComment(e.target.value) }} />
                     <button className='comment'
                         onClick={() => { makeComment(comment, posts._id) }}
                     >Post</button>
