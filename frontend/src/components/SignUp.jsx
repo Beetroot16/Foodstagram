@@ -3,7 +3,7 @@ import React from 'react'
 import '../styles/signup.css'
 import { Link, useNavigate } from 'react-router-dom'
 import logoImage from '../assets/Logo.png'
-import pizzaImage from '../assets/pizza.png'
+import pizzaImage from '../assets/pizza2.png'
 import { toast } from 'react-toastify'
 
 export default function SignUp() {
@@ -59,8 +59,8 @@ export default function SignUp() {
                 <img className="pizzaImg" src={pizzaImage} alt="" />
             </div>
             <div className="form-div">
-                <h1 className='subheading'>Sign-up to see licious recipies from your friends with <span class="nom-nom">Nom-Nom.</span></h1>
-                <div className="signupform">
+                <h1 className='subheading'>Sign-up to see licious recipies from your friends with <span class="nom-nom">Foodstagram.</span></h1>
+                <div className="signupform"><h1 className='signup'>Sign Up</h1>
                     <div className="inputs">
                         <div className="firsttwo">
                             <div className="email">

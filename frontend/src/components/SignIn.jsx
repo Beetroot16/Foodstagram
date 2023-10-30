@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import '../styles/signin.css'
 import { Link, useNavigate } from 'react-router-dom'
-import pizzaImage from '../assets/pizza.png'
+import pizzaImage from '../assets/pizza2.png'
 import { toast } from 'react-toastify'
 import { useContext } from 'react'
 import { LoginContext } from '../context/login-context'
@@ -46,18 +46,19 @@ export default function SignIn() {
     return (
         <div className='signin-container'>
             <div className="form-div">
-                <h1 className='subheading'>In every bite, there's a story waiting to be told. Explore the world one recipe at a time with <span class="nom-nom">Nom-Nom.</span></h1>
+                <h1 className='subheading'>In every bite, there's a story waiting to be told.</h1><h1 className='subheading'> Explore the world one recipe at a time with <span class="nom-nom">Foodstagram.</span></h1>
                 <div className="loginform">
                     <div className="input-div">
+                        <h1 className='signin'>Sign In</h1>
                         <div className="email">
-                            <p>Email</p>
+                            <p>Email*</p>
                             <div>
                                 <input className="input" type="email" name="email" id="email" placeholder='Email'
                                     onChange={(e) => { setEmail(e.target.value) }} />
                             </div>
                         </div>
                         <div className="password">
-                            <p>Password</p>
+                            <p>Password*</p>
                             <div>
                                 <input className="input" type="password" name="password" id="password" placeholder='Password'
                                     onChange={(e) => { setPassword(e.target.value) }} />

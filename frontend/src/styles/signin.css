@@ -9,27 +9,49 @@
     flex-direction: column;
     align-items: center;
     width: 60vw;
-    padding-top: 50px;
+    padding-top: 55px;
 }
 
 .subheading{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     width: 50vw;
-    text-align:justify;
-    font-size: 45px;
+    text-align:center;
+    font-size: 22px;
+    margin-bottom: 0px;
 }
 
 .nom-nom{
-    font-size: 75px;
+    font-size: 25px;
     color: #F8624F;
+}
+
+.signin{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    width: 30vw;
+    text-align:center;
+    font-size: 40px;
+    padding: 1px;
+    color: #ffffff;
+    background-color: #F8624F;
+    margin-top: 0;
+    margin-bottom: 30px;
 }
 
 .loginform{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50vw;
+    width: 30vw;
+    padding-bottom: 10px;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+    margin-top: 30px;
     margin-bottom: 20px;
+    border-style: solid;
+    border-width: 1px;
+    /* box-shadow: 0 0 5px 5px #f8634f47; */
+    border-color: #f8634f55;
 }
 
 .welcomeBack{
@@ -93,8 +115,14 @@ input:focus{
     padding: 10px;
     border-radius: 10px;
     background-color: #F8624F;
+    color: white;
     border: none;
     margin: 10px;
+}
+
+.signin-btn:hover{
+    color: #F8624F;
+    background-color: #ffffff;
 }
 
 .loginForm2{
@@ -103,7 +131,7 @@ input:focus{
 }
 
 .Imagediv{
-    padding-top: 50px;
+    /* padding-top: 50px; */
     display: flex;
     width: 40vw;
     align-items: center;
@@ -122,6 +150,7 @@ a{
 
 .pizzaImg{
     position: relative;
+    margin-top: 0;
     left: 40%;
     width: auto;
     height: 80vh;
